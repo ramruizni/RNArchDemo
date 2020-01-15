@@ -1,7 +1,9 @@
 import React from 'react';
 import {Provider} from 'mobx-react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import MainStore from './stores/MainStore';
 import StackNavigator from './StackNavigator';
+import {BackHandler} from 'react-native';
 
 export default class App extends React.Component {
   hardwareBackPress() {
@@ -27,7 +29,9 @@ export default class App extends React.Component {
     };
     return (
       <Provider {...stores}>
-        <StackNavigator />
+        <SafeAreaProvider>
+          <StackNavigator />
+        </SafeAreaProvider>
       </Provider>
     );
   }

@@ -52,11 +52,11 @@ export const styles = StyleSheet.create({
   }
 });
 
-export const getMainWidth = props => {
-  return props.width ? wp(props.width) : wp('90%');
+export const getMainWidth = width => {
+  return width ? wp(width) : wp('90%');
 };
 
-export const getInputWidth = props => {
-  let width = props.width ? wp(props.width) - 18 : wp('90%') - 18;
-  return props.image ? width - IMAGE_SIZE - 10 : width;
+export const getInputWidth = (width, image) => {
+  let newWidth = props.width ? wp(width) - 18 : wp('90%') - 18;
+  return image ? newWidth - IMAGE_SIZE - 10 : newWidth;
 };

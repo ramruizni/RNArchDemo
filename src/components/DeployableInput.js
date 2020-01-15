@@ -57,13 +57,25 @@ const ownStyles = StyleSheet.create({
   }
 });
 
-export default props => {
+export default ({
+  value,
+  placeholder,
+  data,
+  descName,
+  keyName,
+  image,
+  itemPress,
+  noKeyExtractor,
+  sorted,
+  maskValue,
+  onEmptyList
+}) => {
   const getDesc = item => {
-    return props.descName ? item[props.descName] : item.description;
+    return descName ? item[descName] : item.description;
   };
 
   const getKey = item => {
-    return props.keyName ? item[props.keyName] : item.id;
+    return keyName ? item[keyName] : item.id;
   };
 
   const renderItem = value => {
@@ -71,7 +83,7 @@ export default props => {
       <TouchableOpacity
         style={ownStyles.listItem}
         onPress={() => {
-          props.itemPress(value);
+          itemPress(value);
           MainStore.showPopup = false;
         }}>
         <Text style={ownStyles.listItemTitle}>{getDesc(value)}</Text>
@@ -82,25 +94,25 @@ export default props => {
   const renderPopup = () => {
     return (
       <View style={ownStyles.listContainer}>
-        {props.noKeyExtractor ? (
+        {noKeyExtractor ? (
           <FlatList
             data={
-              props.sorted
-                ? props.data.sort((a, b) => {
+              sorted
+                ? data.sort((a, b) => {
                     return getDesc(a).localeCompare(getDesc(b));
                   })
-                : props.data
+                : data
             }
             renderItem={({item}) => renderItem(item)}
           />
         ) : (
           <FlatList
             data={
-              props.sorted
-                ? props.data.sort((a, b) => {
+              sorted
+                ? data.sort((a, b) => {
                     return getDesc(a).localeCompare(getDesc(b));
                   })
-                : props.data
+                : data
             }
             renderItem={({item}) => renderItem(item)}
             keyExtractor={item => getKey(item).toString()}
@@ -111,16 +123,16 @@ export default props => {
   };
 
   const renderSelectedItem = () => {
-    if (props.maskValue !== undefined) {
+    if (maskValue !== undefined) {
       return (
         <Text style={ownStyles.text} numberOfLines={1}>
-          {props.value !== undefined ? props.maskValue(props.value) : null}
+          {value !== undefined ? maskValue(value) : null}
         </Text>
       );
     } else {
       return (
         <Text style={ownStyles.text} numberOfLines={1}>
-          {props.value !== undefined ? props.value.description : null}
+          {value !== undefined ? value.description : null}
         </Text>
       );
     }
@@ -128,28 +140,26 @@ export default props => {
 
   return (
     <TouchableOpacity
-      style={{...styles.main, width: getMainWidth(props)}}
+      style={{...styles.main, width: getMainWidth(width)}}
       onPress={() => {
-        if (props.data.length >= 1) {
+        if (data.length >= 1) {
           MainStore.showPopup = true;
           MainStore.popupContent = renderPopup();
-        } else if (props.onEmptyList !== undefined) {
-          props.onEmptyList();
+        } else if (onEmptyList !== undefined) {
+          onEmptyList();
         }
       }}>
       <>
-        {props.image && <Image style={styles.leftImage} source={props.image} />}
+        {image && <Image style={styles.leftImage} source={image} />}
         <View>
-          <Text style={ownStyles.placeHolderTop}>{props.placeholder && props.value ? props.placeholder : ''}</Text>
-          <View style={{...ownStyles.mainContent, width: getInputWidth(props) - 12}}>
-            {props.value === null && <Text style={ownStyles.placeHolder}>{props.placeholder}</Text>}
-            {props.value !== null && renderSelectedItem()}
-            {props.data.length >= 1 && (
-              <Image style={styles.rightBtnArrow} source={require('../../assets/arrow-down.png')} />
-            )}
+          <Text style={ownStyles.placeHolderTop}>{placeholder && value ? placeholder : ''}</Text>
+          <View style={{...ownStyles.mainContent, width: getInputWidth(width, image) - 12}}>
+            {value === null && <Text style={ownStyles.placeHolder}>{placeholder}</Text>}
+            {value !== null && renderSelectedItem()}
+            {data.length >= 1 && <Image style={styles.rightBtnArrow} source={require('../../assets/arrow-down.png')} />}
           </View>
-          <View style={{...styles.underline, width: getInputWidth(props) - IMAGE_SIZE + 12}} />
-          <Text style={styles.error}>{props.error}</Text>
+          <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
+          <Text style={styles.error}>{error}</Text>
         </View>
       </>
     </TouchableOpacity>

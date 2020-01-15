@@ -11,9 +11,9 @@ import {
   IMAGE_SIZE
 } from './styles/InputStyles';
 
-export default props => {
+export default ({value, placeholder, image, onChangeText, keyboardType, error}) => {
   const [isFieldActive, setIsFieldActive] = useState(0);
-  const position = useRef(new Animated.Value(props.value ? 1 : 0)).current;
+  const position = useRef(new Animated.Value(value ? 1 : 0)).current;
 
   const onFocus = () => {
     if (!isFieldActive) {
@@ -26,7 +26,7 @@ export default props => {
   };
 
   const onBlur = () => {
-    if (isFieldActive && !props.value) {
+    if (isFieldActive && !value) {
       setIsFieldActive(false);
       Animated.timing(position, {
         toValue: 0,
@@ -46,8 +46,8 @@ export default props => {
   };
 
   return (
-    <View style={{...styles.main, width: getMainWidth(props)}}>
-      {props.image && <Image style={styles.leftImage} source={props.image} />}
+    <View style={{...styles.main, width: getMainWidth(width)}}>
+      {image && <Image style={styles.leftImage} source={image} />}
       <TouchableOpacity
         style={styles.rightBtn}
         onPress={() => {
@@ -56,12 +56,12 @@ export default props => {
         <Image source={require('../../assets/x-blue.png')} />
       </TouchableOpacity>
       <View>
-        <Animated.Text style={[styles.placeholder, animatedTitleStyles()]}>{props.placeholder}</Animated.Text>
+        <Animated.Text style={[styles.placeholder, animatedTitleStyles()]}>{placeholder}</Animated.Text>
         <TextInput
-          style={{...styles.input, width: getInputWidth(props)}}
-          value={props.value}
-          onChangeText={props.onChangeText}
-          keyboardType={props.keyboardType}
+          style={{...styles.input, width: getInputWidth(width, image)}}
+          value={value}
+          onChangeText={onChangeText}
+          keyboardType={keyboardType}
           returnKeyType="done"
           underlineColorAndroid="transparent"
           spellCheck={false}
@@ -70,9 +70,9 @@ export default props => {
           onBlur={onBlur}
           selectionColor={INPUT_COLOR}
         />
-        <View style={{...styles.underline, width: getInputWidth(props) - IMAGE_SIZE + 12}} />
+        <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
         <Text style={styles.error} numberOfLines={1}>
-          {props.error}
+          {error}
         </Text>
       </View>
     </View>

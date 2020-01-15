@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default props => {
+export default () => {
   return (
     <View style={styles.background}>
-      <LinearGradient style={styles.gradient} colors={['#0033A0', 'white']} />
+      <LinearGradient style={styles.gradient} colors={['white', 'purple']} />
     </View>
   );
 };
