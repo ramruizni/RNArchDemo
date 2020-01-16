@@ -5,7 +5,6 @@ import {PRIMARY} from '../../screens/styles/Commons';
 export const FONT_SIZE_VALUE = 18;
 export const FONT_SIZE_PLACEHOLDER = 13;
 export const ANIMATION_DURATION = 150;
-export const INPUT_COLOR = PRIMARY;
 export const GRAY_UNDERLINE_COLOR = 'rgba(128,128,128,0.50)';
 export const IMAGE_SIZE = 20;
 
@@ -19,12 +18,12 @@ export const styles = StyleSheet.create({
   },
   placeholder: {
     fontSize: FONT_SIZE_PLACEHOLDER,
-    color: 'gray',
+    color: 'lightgray',
     marginBottom: -5
   },
   input: {
     fontSize: FONT_SIZE_VALUE,
-    color: INPUT_COLOR,
+    color: PRIMARY,
     paddingVertical: 0
   },
   underline: {

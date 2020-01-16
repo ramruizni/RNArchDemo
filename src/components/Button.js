@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {PRIMARY, BUTTONS} from '../screens/styles/Commons';
 
 const styles = StyleSheet.create({
   main: {
@@ -10,11 +11,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 0.5,
     borderRadius: 10,
-    backgroundColor: 'indigo'
+    backgroundColor: BUTTONS
   },
   text: {
     fontSize: 20,
-    color: 'white'
+    color: 'white',
+    fontWeight: "bold"
   }
 });
 

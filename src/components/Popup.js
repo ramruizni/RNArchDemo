@@ -10,24 +10,21 @@ const styles = StyleSheet.create({
     height: hp('100%'),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(200,200,200,0.4)',
+    backgroundColor: 'rgba(255,255,255,0.7)',
     position: 'absolute',
     top: statusBarHeight(),
     zIndex: 99999999999
   }
 });
 
-export default class extends React.Component {
-  render() {
-    return (
+export default ({content}) => {
+  return (
       <TouchableOpacity
-        style={styles.main}
-        onPress={() => {
-          MainStore.showPopup = false;
-          alert('Hiding!');
-        }}>
-        {this.props.content}
+          style={styles.main}
+          onPress={() => {
+            MainStore.showPopup = false;
+          }}>
+        {content}
       </TouchableOpacity>
-    );
-  }
+  );
 }

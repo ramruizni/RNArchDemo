@@ -8,7 +8,6 @@ import Input from '../components/Input';
 import DeployableInput from '../components/DeployableInput';
 import Button from '../components/Button';
 import Bkg from '../components/Bkg';
-import {Formik} from 'formik';
 
 @inject('userStore')
 @observer
@@ -27,26 +26,29 @@ export default class extends React.Component {
         <Bkg />
         <ScrollView>
           <View style={styles.main}>
+            <View style={styles.inputsView}>
             <DeployableInput
-              value={values.bank}
+              value={userStore.bank}
               placeholder="Bank"
               data={userStore.banks}
-              itemPress={it => (values.bank = it)}
+              itemPress={it => (userStore.bank = it)}
+              image={require("../assets/bank.png")}
             />
             <Input
-              value={values.email}
+              value={userStore.email}
               placeholder="Email"
-              onChangeText={handleChange('email')}
+              onChangeText={it => (userStore.email = it)}
               keyboardType="email"
-              error={errors.email}
+              image={require("../assets/email.png")}
             />
             <Input
-              value={values.password}
+              value={userStore.password}
               placeholder="Password"
-              onChangeText={handleChange('password')}
-              error={errors.password}
+              onChangeText={it => (userStore.password = it)}
+              image={require("../assets/password.png")}
             />
-            <Button style={styles.loginBtn} title="LOGIN" onPress={handleSubmit} />
+            </View>
+            <Button style={styles.loginBtn} title="LOGIN" onPress={this.inter.handleLogin} />
           </View>
         </ScrollView>
       </Shell>

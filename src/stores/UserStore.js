@@ -7,9 +7,14 @@ class UserStore {
     this.password = null;
 
     this.banks = [
-      {id: 1, description: 'Bank of America'},
-      {id: 2, description: 'BANCOLOMBIA'},
-      {id: 3, description: 'BBVA'}
+      {id: 1, description: 'JPMorgan Chase'},
+      {id: 2, description: 'Bank of America'},
+      {id: 3, description: 'Citigroup'},
+      {id: 4, description: 'Wells Fargo & Co.'},
+      {id: 5, description: 'Goldman Sachs'},
+      {id: 6, description: 'Morgan Stanley'},
+      {id: 7, description: 'U.S. Bancorp'},
+      {id: 8, description: 'PNC Financial Services'},
     ];
   }
 }

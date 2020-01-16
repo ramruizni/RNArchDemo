@@ -3,7 +3,10 @@ import CommonStyles from './CommonStyles';
 
 export default StyleSheet.create({
   ...CommonStyles,
+  inputsView: {
+    marginTop: 60
+  },
   loginBtn: {
-    margin: 30
+    marginTop: 80
   }
 });

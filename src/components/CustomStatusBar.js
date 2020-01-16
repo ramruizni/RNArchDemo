@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 export default () => {
   return (
     <View style={styles.main}>
-      <StatusBar translucent backgroundColor="white" barStyle="dark-content" />
+      <StatusBar translucent backgroundColor="#252E48" barStyle="light-content" />
     </View>
   );
 };

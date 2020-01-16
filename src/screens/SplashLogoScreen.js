@@ -6,6 +6,7 @@ import styles from './styles/SplashLogoStyles';
 import Shell from './base/Shell';
 import {getFormattedBundleId} from '../utils/Strings';
 import Bkg from '../components/Bkg';
+import {PRIMARY} from './styles/Commons';
 
 @inject('mainStore')
 @observer
@@ -22,8 +23,9 @@ export default class extends React.Component {
       <Shell barStyle="blue">
         <Bkg />
         <View style={styles.mainCentering}>
-          <Image style={styles.logo} source={require('../assets/logo-react.png')} />
-          <Text style={styles.versionText}>{getFormattedBundleId()}</Text>
+          <Image style={styles.logo} source={require('../assets/logo-react.png')} resizeMode="contain" tintColor={PRIMARY} />
+          <Text style={styles.text}>RN Arch Demo</Text>
+          <Text style={styles.versionText}>Version {getFormattedBundleId()}</Text>
         </View>
       </Shell>
     );

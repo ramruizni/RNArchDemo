@@ -1,13 +1,24 @@
 import {StyleSheet} from 'react-native';
 import CommonStyles from './CommonStyles';
+import {PRIMARY} from './Commons';
 
 export default StyleSheet.create({
   ...CommonStyles,
   logo: {
-    margin: 60
+    marginBottom: 10,
+    width: 160,
+    height: 160
+  },
+  text: {
+    textAlign: 'center',
+    fontSize: 22,
+    fontWeight: "bold",
+    color: PRIMARY
   },
   versionText: {
     textAlign: 'center',
-    color: 'indigo'
+    fontSize: 18,
+    color: PRIMARY,
+    marginBottom: 40
   }
 });

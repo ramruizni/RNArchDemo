@@ -8,9 +8,9 @@ import {
   getInputWidth,
   getMainWidth,
   IMAGE_SIZE,
-  INPUT_COLOR,
   styles
 } from './styles/InputStyles';
+import {BUTTONS, PRIMARY} from '../screens/styles/Commons';
 
 const ownStyles = StyleSheet.create({
   mainContent: {
@@ -30,7 +30,7 @@ const ownStyles = StyleSheet.create({
   },
   text: {
     fontSize: FONT_SIZE_VALUE,
-    color: INPUT_COLOR
+    color: PRIMARY
   },
   listContainer: {
     height: hp('50%')
@@ -39,13 +39,14 @@ const ownStyles = StyleSheet.create({
     width: wp('70%'),
     borderWidth: 0.5,
     borderColor: 'lightgray',
-    backgroundColor: 'white',
+    backgroundColor: BUTTONS,
     justifyContent: 'center',
     alignItems: 'center',
     height: 32
   },
   listItemTitle: {
-    fontSize: 14
+    fontSize: 14,
+    color: PRIMARY
   },
   rightBtnArrow: {
     width: 30,
@@ -152,13 +153,13 @@ export default ({
         }
       }}>
       <>
-        {image && <Image style={styles.leftImage} source={image} />}
+        {image && <Image style={styles.leftImage} source={image} tintColor={PRIMARY} />}
         <View>
           <Text style={ownStyles.placeHolderTop}>{placeholder && value ? placeholder : ''}</Text>
           <View style={{...ownStyles.mainContent, width: getInputWidth(width, image) - 12}}>
             {value === null && <Text style={ownStyles.placeHolder}>{placeholder}</Text>}
             {value !== null && renderSelectedItem()}
-            {data.length >= 1 && <Image style={styles.rightBtnArrow} source={require('../assets/arrow-down.png')} />}
+            {data.length >= 1 && <Image style={styles.rightBtnArrow} source={require('../assets/arrow-down.png')} tintColor={PRIMARY} />}
           </View>
           <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
           <Text style={styles.error}>{error}</Text>

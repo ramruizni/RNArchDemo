@@ -10,6 +10,7 @@ import {
   getInputWidth,
   IMAGE_SIZE
 } from './styles/InputStyles';
+import {PRIMARY} from '../screens/styles/Commons';
 
 export default ({value, placeholder, image, onChangeText, keyboardType, error, width, handleFocus}) => {
   const [isFieldActive, setIsFieldActive] = useState(0);
@@ -47,7 +48,7 @@ export default ({value, placeholder, image, onChangeText, keyboardType, error, w
 
   return (
     <View style={{...styles.main, width: getMainWidth(width)}}>
-      {image && <Image style={styles.leftImage} source={image} />}
+      {image && <Image style={styles.leftImage} source={image} tintColor={PRIMARY} />}
       <View>
         <Animated.Text style={[styles.placeholder, animatedTitleStyles()]}>{placeholder}</Animated.Text>
         <TextInput
