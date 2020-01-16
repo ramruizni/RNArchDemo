@@ -69,13 +69,12 @@ const styles = StyleSheet.create({
   }
 });
 
-export default props => {
+export default ({message, acceptPress, cancelPress, image, title}) => {
   const getImage = name => {
     if (name === 'CORRECT') return require('../assets/correct.png');
     else return null;
   };
 
-  const {message, acceptPress, cancelPress, image, title} = props;
   return (
     <View style={styles.main}>
       <View style={styles.viewImage}>

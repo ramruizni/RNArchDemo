@@ -11,7 +11,7 @@ import {
   IMAGE_SIZE
 } from './styles/InputStyles';
 
-export default ({value, placeholder, image, onChangeText, keyboardType, error}) => {
+export default ({value, placeholder, image, onChangeText, keyboardType, error, width, handleFocus}) => {
   const [isFieldActive, setIsFieldActive] = useState(0);
   const position = useRef(new Animated.Value(value ? 1 : 0)).current;
 
@@ -48,13 +48,6 @@ export default ({value, placeholder, image, onChangeText, keyboardType, error}) 
   return (
     <View style={{...styles.main, width: getMainWidth(width)}}>
       {image && <Image style={styles.leftImage} source={image} />}
-      <TouchableOpacity
-        style={styles.rightBtn}
-        onPress={() => {
-          alert('Shiet');
-        }}>
-        <Image source={require('../../assets/x-blue.png')} />
-      </TouchableOpacity>
       <View>
         <Animated.Text style={[styles.placeholder, animatedTitleStyles()]}>{placeholder}</Animated.Text>
         <TextInput

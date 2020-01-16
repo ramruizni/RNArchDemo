@@ -4,6 +4,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import MainStore from './stores/MainStore';
 import StackNavigator from './StackNavigator';
 import {BackHandler} from 'react-native';
+import UserStore from './stores/UserStore';
 
 export default class App extends React.Component {
   hardwareBackPress() {
@@ -25,7 +26,8 @@ export default class App extends React.Component {
   render() {
     console.disableYellowBox = true;
     const stores = {
-      mainStore: MainStore
+      mainStore: MainStore,
+      userStore: UserStore
     };
     return (
       <Provider {...stores}>

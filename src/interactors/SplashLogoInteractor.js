@@ -4,7 +4,7 @@ export default class extends BaseInteractor {
   constructor(screen) {
     super(screen);
     setTimeout(() => {
-      alert('To Login');
-    }, 1000);
+      this.navigateClearingStack('LoginScreen');
+    }, 2000);
   }
 }

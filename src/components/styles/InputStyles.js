@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {PRIMARY} from '../../screens/styles/Commons';
 
 export const FONT_SIZE_VALUE = 18;
 export const FONT_SIZE_PLACEHOLDER = 13;
 export const ANIMATION_DURATION = 150;
-export const INPUT_COLOR = '#0433A0';
+export const INPUT_COLOR = PRIMARY;
 export const GRAY_UNDERLINE_COLOR = 'rgba(128,128,128,0.50)';
 export const IMAGE_SIZE = 20;
 
@@ -57,6 +58,6 @@ export const getMainWidth = width => {
 };
 
 export const getInputWidth = (width, image) => {
-  let newWidth = props.width ? wp(width) - 18 : wp('90%') - 18;
+  let newWidth = width ? wp(width) - 18 : wp('90%') - 18;
   return image ? newWidth - IMAGE_SIZE - 10 : newWidth;
 };

@@ -21,8 +21,8 @@ export default class extends React.Component {
     return (
       <Shell barStyle="blue">
         <Bkg />
-        <View style={styles.main}>
-          <Image source={require('../assets/logoLukas.png')} />
+        <View style={styles.mainCentering}>
+          <Image style={styles.logo} source={require('../assets/logo-react.png')} />
           <Text style={styles.versionText}>{getFormattedBundleId()}</Text>
         </View>
       </Shell>

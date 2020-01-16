@@ -3,13 +3,13 @@ import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-n
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import MainStore from '../stores/MainStore';
 import {
-  styles,
   FONT_SIZE_PLACEHOLDER,
   FONT_SIZE_VALUE,
-  INPUT_COLOR,
-  getMainWidth,
   getInputWidth,
-  IMAGE_SIZE
+  getMainWidth,
+  IMAGE_SIZE,
+  INPUT_COLOR,
+  styles
 } from './styles/InputStyles';
 
 const ownStyles = StyleSheet.create({
@@ -68,7 +68,9 @@ export default ({
   noKeyExtractor,
   sorted,
   maskValue,
-  onEmptyList
+  onEmptyList,
+  width,
+  error
 }) => {
   const getDesc = item => {
     return descName ? item[descName] : item.description;
@@ -156,7 +158,7 @@ export default ({
           <View style={{...ownStyles.mainContent, width: getInputWidth(width, image) - 12}}>
             {value === null && <Text style={ownStyles.placeHolder}>{placeholder}</Text>}
             {value !== null && renderSelectedItem()}
-            {data.length >= 1 && <Image style={styles.rightBtnArrow} source={require('../../assets/arrow-down.png')} />}
+            {data.length >= 1 && <Image style={styles.rightBtnArrow} source={require('../assets/arrow-down.png')} />}
           </View>
           <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
           <Text style={styles.error}>{error}</Text>

@@ -9,6 +9,15 @@ export default StyleSheet.create({
     zIndex: -99999
   },
   main: {
-    flex: 1
+    flex: 1,
+    height: hp('80%'),
+    alignItems: 'center',
+    zIndex: 1,
+    justifyContent: 'center'
+  },
+  mainCentering: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });

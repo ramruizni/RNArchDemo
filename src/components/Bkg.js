@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 export default () => {
   return (
     <View style={styles.background}>
-      <LinearGradient style={styles.gradient} colors={['white', 'purple']} />
+      <Image style={styles.gradient} source={require('../assets/bkg.png')} />
     </View>
   );
 };

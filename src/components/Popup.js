@@ -24,6 +24,7 @@ export default class extends React.Component {
         style={styles.main}
         onPress={() => {
           MainStore.showPopup = false;
+          alert('Hiding!');
         }}>
         {this.props.content}
       </TouchableOpacity>
