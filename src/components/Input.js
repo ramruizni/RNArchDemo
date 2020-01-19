@@ -1,11 +1,10 @@
 import React, {useState, useRef} from 'react';
-import {TouchableOpacity, TextInput, View, Text, Animated, Image} from 'react-native';
+import {TextInput, View, Text, Animated, Image} from 'react-native';
 import {
   styles,
   ANIMATION_DURATION,
   FONT_SIZE_PLACEHOLDER,
   FONT_SIZE_VALUE,
-  INPUT_COLOR,
   getMainWidth,
   getInputWidth,
   IMAGE_SIZE
@@ -62,7 +61,6 @@ export default ({value, placeholder, image, onChangeText, keyboardType, error, w
           autoCorrect={false}
           onFocus={onFocus}
           onBlur={onBlur}
-          selectionColor={INPUT_COLOR}
         />
         <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
         <Text style={styles.error} numberOfLines={1}>

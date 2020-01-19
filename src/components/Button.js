@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {PRIMARY, BUTTONS} from '../screens/styles/Commons';
+import {BUTTONS} from '../screens/styles/Commons';
 
 const styles = StyleSheet.create({
   main: {

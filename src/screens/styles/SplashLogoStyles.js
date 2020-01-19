@@ -12,7 +12,7 @@ export default StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: 22,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: PRIMARY
   },
   versionText: {

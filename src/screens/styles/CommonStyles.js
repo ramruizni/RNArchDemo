@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 export default StyleSheet.create({
   background: {
@@ -10,14 +11,19 @@ export default StyleSheet.create({
   },
   main: {
     flex: 1,
-    height: hp('80%'),
     alignItems: 'center',
-    zIndex: 1,
     justifyContent: 'center'
   },
   mainCentering: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center'
+  },
+  fragment: {
+    height: hp('84%') - 80,
+    width: wp('100%'),
+    position: 'absolute',
+    top: hp('16%') - getStatusBarHeight(),
     alignItems: 'center'
   }
 });

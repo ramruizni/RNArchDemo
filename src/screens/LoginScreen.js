@@ -22,33 +22,33 @@ export default class extends React.Component {
   render() {
     const {userStore} = this.props;
     return (
-      <Shell barStyle="blue">
+      <Shell>
         <Bkg />
         <ScrollView>
           <View style={styles.main}>
             <View style={styles.inputsView}>
-            <DeployableInput
-              value={userStore.bank}
-              placeholder="Bank"
-              data={userStore.banks}
-              itemPress={it => (userStore.bank = it)}
-              image={require("../assets/bank.png")}
-            />
-            <Input
-              value={userStore.email}
-              placeholder="Email"
-              onChangeText={it => (userStore.email = it)}
-              keyboardType="email"
-              image={require("../assets/email.png")}
-            />
-            <Input
-              value={userStore.password}
-              placeholder="Password"
-              onChangeText={it => (userStore.password = it)}
-              image={require("../assets/password.png")}
-            />
+              <DeployableInput
+                value={userStore.bank}
+                placeholder="Bank"
+                data={userStore.banks}
+                itemPress={it => (userStore.bank = it)}
+                image={require('../assets/bank.png')}
+              />
+              <Input
+                value={userStore.email}
+                placeholder="Email"
+                onChangeText={it => (userStore.email = it)}
+                keyboardType="email-address"
+                image={require('../assets/email.png')}
+              />
+              <Input
+                value={userStore.password}
+                placeholder="Password"
+                onChangeText={it => (userStore.password = it)}
+                image={require('../assets/password.png')}
+              />
             </View>
-            <Button style={styles.loginBtn} title="LOGIN" onPress={this.inter.handleLogin} />
+            <Button style={styles.loginBtn} title="LOGIN" onPress={() => this.inter.handleLogin()} />
           </View>
         </ScrollView>
       </Shell>

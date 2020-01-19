@@ -6,13 +6,15 @@ class MainStore {
     this.menuSelected = 2;
     this.showPopup = false;
     this.popupContent = null;
+    this.menuSection = 0;
   }
 }
 
 decorate(MainStore, {
   loading: observable,
   menuSelected: observable,
-  showPopup: observable
+  showPopup: observable,
+  menuSection: observable
 });
 
 export default new MainStore();

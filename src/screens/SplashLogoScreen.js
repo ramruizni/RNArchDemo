@@ -20,10 +20,15 @@ export default class extends React.Component {
 
   render() {
     return (
-      <Shell barStyle="blue">
+      <Shell>
         <Bkg />
         <View style={styles.mainCentering}>
-          <Image style={styles.logo} source={require('../assets/logo-react.png')} resizeMode="contain" tintColor={PRIMARY} />
+          <Image
+            style={styles.logo}
+            source={require('../assets/logo-react.png')}
+            resizeMode="contain"
+            tintColor={PRIMARY}
+          />
           <Text style={styles.text}>RN Arch Demo</Text>
           <Text style={styles.versionText}>Version {getFormattedBundleId()}</Text>
         </View>
