@@ -7,7 +7,8 @@ export default StyleSheet.create({
   logo: {
     marginBottom: 10,
     width: 160,
-    height: 160
+    height: 160,
+    tintColor: PRIMARY
   },
   text: {
     textAlign: 'center',

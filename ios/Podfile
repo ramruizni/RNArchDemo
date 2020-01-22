@@ -40,6 +40,8 @@ target 'rn_arch_demo' do
   end
 
   use_native_modules!
+  
+  pod 'SwiftySound'
 end
 
 target 'rn_arch_demo-tvOS' do

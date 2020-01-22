@@ -22,7 +22,7 @@ export default class extends React.Component {
     return (
       <Shell>
         <Bkg />
-        <View style={styles.mainCentering}>
+        <View style={styles.main}>
           <Image
             style={styles.logo}
             source={require('../assets/logo-react.png')}

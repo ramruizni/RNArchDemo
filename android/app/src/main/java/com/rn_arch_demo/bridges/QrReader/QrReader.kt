@@ -25,7 +25,7 @@ class QrReader(reactContext: ReactApplicationContext?) : ReactContextBaseJavaMod
         EventBus.getDefault().register(this)
 
         IntentIntegrator(currentActivity)
-                .setCaptureActivity(CustomizableCaptureActivity::class.java)
+                .setCaptureActivity(ScanActivity::class.java)
                 .setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
                 .setPrompt("Scan a barcode")
                 .setBarcodeImageEnabled(true)

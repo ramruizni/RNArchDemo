@@ -5,8 +5,8 @@ import MenuScreen from './screens/MenuScreen';
 
 export default createAppContainer(
   createStackNavigator({
+    SplashLogoScreen,
     MenuScreen,
-    LoginScreen,
-    SplashLogoScreen
+    LoginScreen
   })
 );

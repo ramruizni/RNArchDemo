@@ -1,8 +1,7 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {PRIMARY} from '../screens/styles/Commons';
 
 const styles = StyleSheet.create({
   background: {
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
 export default () => {
   return (
     <View style={styles.background}>
-      <LinearGradient style={styles.gradient} colors={["#252E48", "#3B4567"]} />
+      <LinearGradient style={styles.gradient} colors={['#252E48', '#3B4567']} />
     </View>
   );
 };

@@ -18,12 +18,14 @@ const styles = StyleSheet.create({
   btnQrImage: {
     width: 24,
     height: 24,
-    marginRight: 10
+    marginRight: 10,
+    tintColor: PRIMARY
   },
   btnQrImageLarge: {
     width: 40,
     height: 40,
-    marginRight: 5
+    marginRight: 5,
+    tintColor: PRIMARY
   },
   btnQrText: {
     color: 'white',

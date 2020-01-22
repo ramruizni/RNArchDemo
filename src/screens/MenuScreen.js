@@ -26,7 +26,7 @@ export default class extends React.Component {
       <Shell>
         <Bkg />
         <BigHeader title="Main Menu" />
-        <View style={{...styles.main}}>
+        <View style={styles.main}>
           {mainStore.menuSection === 0 && <FragmentQr inter={this.inter} />}
           {mainStore.menuSection === 1 && <FragmentSound inter={this.inter} />}
           <NavPagerBottom

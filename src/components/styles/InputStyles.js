@@ -39,7 +39,8 @@ export const styles = StyleSheet.create({
   leftImage: {
     width: IMAGE_SIZE,
     height: IMAGE_SIZE,
-    marginRight: 10
+    marginRight: 10,
+    tintColor: PRIMARY
   },
   rightBtn: {
     width: 40,

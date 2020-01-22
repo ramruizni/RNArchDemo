@@ -54,7 +54,8 @@ const ownStyles = StyleSheet.create({
     position: 'absolute',
     end: 0,
     padding: 14,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    tintColor: PRIMARY
   }
 });
 
@@ -159,7 +160,9 @@ export default ({
           <View style={{...ownStyles.mainContent, width: getInputWidth(width, image) - 12}}>
             {value === null && <Text style={ownStyles.placeHolder}>{placeholder}</Text>}
             {value !== null && renderSelectedItem()}
-            {data.length >= 1 && <Image style={styles.rightBtnArrow} source={require('../assets/arrow-down.png')} tintColor={PRIMARY} />}
+            {data.length >= 1 && (
+              <Image style={styles.rightBtnArrow} source={require('../assets/arrow-down.png')} tintColor={PRIMARY} />
+            )}
           </View>
           <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
           <Text style={styles.error}>{error}</Text>

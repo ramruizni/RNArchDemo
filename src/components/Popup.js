@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
 
 export default ({content}) => {
   return (
-      <TouchableOpacity
-          style={styles.main}
-          onPress={() => {
-            MainStore.showPopup = false;
-          }}>
-        {content}
-      </TouchableOpacity>
+    <TouchableOpacity
+      style={styles.main}
+      onPress={() => {
+        MainStore.showPopup = false;
+      }}>
+      {content}
+    </TouchableOpacity>
   );
-}
+};

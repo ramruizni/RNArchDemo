@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {BUTTONS} from '../screens/styles/Commons';
+import {statusBarHeight} from '../utils/UI';
 
 const styles = StyleSheet.create({
   main: {
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     height: hp('16%'),
     alignItems: 'center',
     position: 'absolute',
-    top: 0,
+    top: statusBarHeight(),
     backgroundColor: BUTTONS,
     borderBottomWidth: 0.2,
     borderColor: 'white'
