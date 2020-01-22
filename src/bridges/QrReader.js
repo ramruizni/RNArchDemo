@@ -1,8 +1,9 @@
-import { Platform, NativeModules} from "react-native"
+import {Platform, NativeModules} from 'react-native';
 import Callback from './Callback';
 
 export default new (class QrReader {
   constructor() {
+    console.log(NativeModules.QrReaderIOS)
     if (Platform.OS === 'android') {
       this.manager = NativeModules.QrReaderAndroid;
     } else {

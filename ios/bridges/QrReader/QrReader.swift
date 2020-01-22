@@ -15,13 +15,19 @@ import Foundation
   
   var callback: RCTResponseSenderBlock?
   
-  @objc func startScan(callback: @escaping RCTResponseSenderBlock) {
+  @objc func startScan(_ callback: @escaping RCTResponseSenderBlock) {
     self.callback = callback
-    NotificationCenter.default.addObserver(self, selector: #selector(self.onQrRead),
-    name: Notification.Name("onQrRead"), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(onQrRead(notification:)),
+                                           name: Notification.Name("onQrRead"), object: nil)
+    
+    DispatchQueue.main.async {
+      let vc = ScanViewController()
+      RCTPresentedViewController()?.present(vc, animated: true, completion: nil)
+    }
   }
   
-  @objc func onQrRead(qrContent: String?) {
+  @objc func onQrRead(notification: NSNotification) {
+    let qrContent = notification.userInfo?["qrContent"]
     if (qrContent != nil) {
       callback!([nil, qrContent])
     } else {

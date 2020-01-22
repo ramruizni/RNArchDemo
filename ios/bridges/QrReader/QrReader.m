@@ -6,10 +6,10 @@
 //  Copyright © 2020 Facebook. All rights reserved.
 //
 
-#import "React/RCTBridgeModule.h"
+#import <React/RCTBridgeModule.h>
 
 @interface
 RCT_EXTERN_REMAP_MODULE(QrReaderIOS, QrReader, NSObject)
 
-RCT_EXTERN_METHOD(startScan)
+RCT_EXTERN_METHOD(startScan:(RCTResponseSenderBlock) callback)
 @end

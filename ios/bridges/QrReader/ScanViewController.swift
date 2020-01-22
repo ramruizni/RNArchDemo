@@ -93,7 +93,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     }
 
     func found(code: String) {
-      NotificationCenter.default.post(name: Notification.Name("onQrRead"), object: code)
+      NotificationCenter.default.post(name: Notification.Name("onQrRead"), object: nil, userInfo: ["qrContent": code])
+      dismiss(animated: true, completion: nil)
     }
 
     override var prefersStatusBarHidden: Bool {
