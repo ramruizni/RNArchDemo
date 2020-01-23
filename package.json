@@ -11,7 +11,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "formik": "^2.1.2",
     "mobx": "5.13.0",
     "mobx-react": "5.4.3",
     "react": "16.9.0",
@@ -24,8 +23,7 @@
     "react-native-reanimated": "^1.1.0",
     "react-native-responsive-screen": "^1.2.2",
     "react-native-safe-area-context": "^0.6.0",
-    "react-navigation": "^3.11.1",
-    "yup": "^0.28.0"
+    "react-navigation": "^3.11.1"
   },
   "devDependencies": {
     "@babel/core": "7.8.3",

@@ -6,20 +6,18 @@ import Popup from '../../components/Popup';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StatusBar} from 'react-native';
 
-@inject('mainStore')
-@observer
-export default class extends React.Component {
-  render() {
-    const mainStore = this.props.mainStore;
-    return (
-      <>
-        {mainStore.loading && <LoadingView />}
-        {mainStore.showPopup && <Popup content={mainStore.popupContent} />}
-        <StatusBar translucent backgroundColor="#252E48" barStyle="light-content" />
-        <SafeAreaView style={styles.main} {...this.props}>
-          {this.props.children}
-        </SafeAreaView>
-      </>
-    );
-  }
-}
+const Shell = props => {
+  const {mainStore} = props;
+  return (
+    <>
+      {mainStore.loading && <LoadingView />}
+      {mainStore.showPopup && <Popup content={mainStore.popupContent} />}
+      <StatusBar translucent backgroundColor="#252E48" barStyle="light-content" />
+      <SafeAreaView style={styles.main} {...props}>
+        {props.children}
+      </SafeAreaView>
+    </>
+  );
+};
+
+export default inject('mainStore')(observer(Shell));

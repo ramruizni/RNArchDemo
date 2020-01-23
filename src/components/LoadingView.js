@@ -16,12 +16,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class extends React.Component {
-  render() {
-    return (
-      <View style={styles.main}>
-        <ActivityIndicator size="small" color="#0000ff" />
-      </View>
-    );
-  }
-}
+export default () => {
+  return (
+    <View style={styles.main}>
+      <ActivityIndicator size="small" color="#0000ff" />
+    </View>
+  );
+};

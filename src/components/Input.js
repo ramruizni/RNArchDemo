@@ -11,7 +11,19 @@ import {
 } from './styles/InputStyles';
 import {PRIMARY} from '../screens/styles/Commons';
 
-export default ({value, placeholder, image, onChangeText, keyboardType, error, width, handleFocus}) => {
+export default ({
+  value,
+  placeholder,
+  image,
+  name,
+  onChange,
+  onChangeText,
+  keyboardType,
+  error,
+  width,
+  handleFocus,
+  handleChange
+}) => {
   const [isFieldActive, setIsFieldActive] = useState(0);
   const position = useRef(new Animated.Value(value ? 1 : 0)).current;
 
@@ -53,7 +65,8 @@ export default ({value, placeholder, image, onChangeText, keyboardType, error, w
         <TextInput
           style={{...styles.input, width: getInputWidth(width, image)}}
           value={value}
-          onChangeText={onChangeText}
+          name={name}
+          onChange={onChange}
           keyboardType={keyboardType}
           returnKeyType="done"
           underlineColorAndroid="transparent"

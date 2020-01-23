@@ -4,16 +4,16 @@ import MainStore from '../../stores/MainStore';
 import {customAlert} from '../../utils/UI';
 
 export default class {
-  constructor(screen) {
-    this.screen = screen;
+  constructor(navigation) {
+    this.navigation = navigation;
   }
 
   navigate(screen, params) {
-    this.screen.props.navigation.navigate(screen, params);
+    this.navigation.navigate(screen, params);
   }
 
   navigateClearingStack(screen) {
-    this.screen.props.navigation.dispatch(
+    this.navigation.dispatch(
       StackActions.reset({
         index: 0,
         actions: [NavigationActions.navigate({routeName: screen})]
@@ -22,7 +22,7 @@ export default class {
   }
 
   navigateBack() {
-    this.screen.props.navigation.goBack(null);
+    this.navigation.goBack(null);
   }
 
   showAlert(message, acceptPress, cancelPress, image, title) {
