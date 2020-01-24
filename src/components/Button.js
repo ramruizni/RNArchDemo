@@ -16,13 +16,20 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     color: 'white',
-    fontWeight: "bold"
+    fontWeight: 'bold'
   }
 });
 
-export default ({style, title, onPress}) => {
+export default ({style, title, enabled, onPress}) => {
+  const backgroundColor = enabled ? BUTTONS : 'gray';
+  const handlePress = () => {
+    if (enabled) {
+      onPress();
+    }
+  };
+
   return (
-    <TouchableOpacity style={{...styles.main, ...style}} onPress={onPress}>
+    <TouchableOpacity style={{...styles.main, backgroundColor, ...style}} onPress={handlePress}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );

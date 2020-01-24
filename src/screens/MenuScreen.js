@@ -29,5 +29,4 @@ const MenuScreen = ({navigation, mainStore}) => {
   );
 };
 
-MenuScreen.navigationOptions = {header: null};
 export default inject('mainStore')(observer(MenuScreen));

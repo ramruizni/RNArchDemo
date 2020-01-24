@@ -1,9 +1,11 @@
 import React from 'react';
 import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp
+} from 'react-native-responsive-screen';
 import MainStore from '../stores/MainStore';
 import {
-  FONT_SIZE_PLACEHOLDER,
   FONT_SIZE_VALUE,
   getInputWidth,
   getMainWidth,
@@ -20,17 +22,7 @@ const ownStyles = StyleSheet.create({
   },
   placeHolder: {
     fontSize: FONT_SIZE_VALUE,
-    color: '#a5a5a5'
-  },
-  placeHolderTop: {
-    fontSize: FONT_SIZE_PLACEHOLDER,
-    color: 'gray',
-    marginTop: wp('4%'),
-    marginBottom: -5
-  },
-  text: {
-    fontSize: FONT_SIZE_VALUE,
-    color: PRIMARY
+    color: 'lightgray'
   },
   listContainer: {
     height: hp('50%')
@@ -129,13 +121,13 @@ export default ({
   const renderSelectedItem = () => {
     if (maskValue !== undefined) {
       return (
-        <Text style={ownStyles.text} numberOfLines={1}>
+        <Text style={styles.input} numberOfLines={1}>
           {value !== undefined ? maskValue(value) : null}
         </Text>
       );
     } else {
       return (
-        <Text style={ownStyles.text} numberOfLines={1}>
+        <Text style={styles.input} numberOfLines={1}>
           {value !== undefined ? value.description : null}
         </Text>
       );
@@ -156,15 +148,21 @@ export default ({
       <>
         {image && <Image style={styles.leftImage} source={image} tintColor={PRIMARY} />}
         <View>
-          <Text style={ownStyles.placeHolderTop}>{placeholder && value ? placeholder : ''}</Text>
+          <Text style={styles.placeholder}>{placeholder && value ? placeholder : ''}</Text>
           <View style={{...ownStyles.mainContent, width: getInputWidth(width, image) - 12}}>
             {value === null && <Text style={ownStyles.placeHolder}>{placeholder}</Text>}
             {value !== null && renderSelectedItem()}
             {data.length >= 1 && (
-              <Image style={styles.rightBtnArrow} source={require('../assets/arrow-down.png')} tintColor={PRIMARY} />
+              <Image
+                style={styles.rightBtnArrow}
+                source={require('../assets/arrow-down.png')}
+                tintColor={PRIMARY}
+              />
             )}
           </View>
-          <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
+          <View
+            style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}}
+          />
           <Text style={styles.error}>{error}</Text>
         </View>
       </>

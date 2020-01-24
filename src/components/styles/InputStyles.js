@@ -24,7 +24,8 @@ export const styles = StyleSheet.create({
   input: {
     fontSize: FONT_SIZE_VALUE,
     color: PRIMARY,
-    paddingVertical: 0
+    paddingVertical: 0,
+    paddingHorizontal: 0
   },
   underline: {
     height: 1.4,
@@ -34,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   error: {
     fontSize: FONT_SIZE_PLACEHOLDER,
-    color: 'red'
+    color: 'lightpink'
   },
   leftImage: {
     width: IMAGE_SIZE,

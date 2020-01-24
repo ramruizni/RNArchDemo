@@ -9,5 +9,13 @@ export function statusBarHeight() {
 }
 
 export function customAlert(message, acceptPress, cancelPress, image, title) {
-  return <Alert image={image} title={title} message={message} acceptPress={acceptPress} cancelPress={cancelPress} />;
+  return (
+    <Alert
+      image={image}
+      title={title}
+      message={message}
+      acceptPress={acceptPress}
+      cancelPress={cancelPress}
+    />
+  );
 }

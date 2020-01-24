@@ -1,10 +1,10 @@
 import BaseInteractor from './base/BaseInteractor';
 
 export default class extends BaseInteractor {
-  constructor(screen) {
-    super(screen);
+  handleSplash(spin) {
+    spin();
     setTimeout(() => {
       this.navigateClearingStack('LoginScreen');
-    }, 2000);
+    }, 4000);
   }
 }

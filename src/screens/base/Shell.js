@@ -13,7 +13,7 @@ const Shell = props => {
       {mainStore.loading && <LoadingView />}
       {mainStore.showPopup && <Popup content={mainStore.popupContent} />}
       <StatusBar translucent backgroundColor="#252E48" barStyle="light-content" />
-      <SafeAreaView style={styles.main} {...props}>
+      <SafeAreaView style={styles.shell} {...props}>
         {props.children}
       </SafeAreaView>
     </>

@@ -1,23 +1,36 @@
 import React from 'react';
-import {Image, View, Text} from 'react-native';
-import {inject, observer} from 'mobx-react';
+import {View, Text, Animated, Easing} from 'react-native';
 import SplashLogoInteractor from '../interactors/SplashLogoInteractor';
 import styles from './styles/SplashLogoStyles';
 import Shell from './base/Shell';
 import {getFormattedBundleId} from '../utils/Strings';
 import Bkg from '../components/Bkg';
 import {PRIMARY} from './styles/Commons';
-import {useForm} from '../utils/useForm';
 
 const SplashLogoScreen = ({navigation}) => {
-  const [values, handleChange] = useForm({bank: null, email: '', password: ''});
+  const spinValue = new Animated.Value(0);
+  const spin = () => {
+    spinValue.setValue(0);
+    Animated.timing(spinValue, {
+      toValue: 1,
+      duration: 4000,
+      easing: Easing.linear
+    }).start(() => spin());
+  };
+  const spinInterpolate = spinValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg']
+  });
+
   const inter = new SplashLogoInteractor(navigation);
+  inter.handleSplash(spin);
+
   return (
     <Shell>
       <Bkg />
       <View style={styles.main}>
-        <Image
-          style={styles.logo}
+        <Animated.Image
+          style={{...styles.logo, transform: [{rotate: spinInterpolate}]}}
           source={require('../assets/logo-react.png')}
           resizeMode="contain"
           tintColor={PRIMARY}
@@ -29,5 +42,4 @@ const SplashLogoScreen = ({navigation}) => {
   );
 };
 
-SplashLogoScreen.navigationOptions = {header: null};
 export default SplashLogoScreen;

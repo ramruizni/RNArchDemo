@@ -11,23 +11,11 @@ import {
 } from './styles/InputStyles';
 import {PRIMARY} from '../screens/styles/Commons';
 
-export default ({
-  value,
-  placeholder,
-  image,
-  name,
-  onChange,
-  onChangeText,
-  keyboardType,
-  error,
-  width,
-  handleFocus,
-  handleChange
-}) => {
+export default ({value, placeholder, image, onChangeText, keyboardType, error, width, onBlur}) => {
   const [isFieldActive, setIsFieldActive] = useState(0);
   const position = useRef(new Animated.Value(value ? 1 : 0)).current;
 
-  const onFocus = () => {
+  const handleFocus = () => {
     if (!isFieldActive) {
       setIsFieldActive(true);
       Animated.timing(position, {
@@ -37,7 +25,8 @@ export default ({
     }
   };
 
-  const onBlur = () => {
+  const handleBlur = () => {
+    onBlur();
     if (isFieldActive && !value) {
       setIsFieldActive(false);
       Animated.timing(position, {
@@ -61,19 +50,21 @@ export default ({
     <View style={{...styles.main, width: getMainWidth(width)}}>
       {image && <Image style={styles.leftImage} source={image} tintColor={PRIMARY} />}
       <View>
-        <Animated.Text style={[styles.placeholder, animatedTitleStyles()]}>{placeholder}</Animated.Text>
+        <Animated.Text style={[styles.placeholder, animatedTitleStyles()]}>
+          {placeholder}
+        </Animated.Text>
         <TextInput
           style={{...styles.input, width: getInputWidth(width, image)}}
           value={value}
-          name={name}
-          onChange={onChange}
+          onChangeText={onChangeText}
+          onBlur={handleBlur}
+          onFocus={handleFocus}
           keyboardType={keyboardType}
           returnKeyType="done"
           underlineColorAndroid="transparent"
           spellCheck={false}
           autoCorrect={false}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          selectionColor={'lightpink'}
         />
         <View style={{...styles.underline, width: getInputWidth(width, image) - IMAGE_SIZE + 12}} />
         <Text style={styles.error} numberOfLines={1}>

@@ -1,26 +1,36 @@
-import {StatusBar, StyleSheet} from 'react-native';
-import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {statusBarHeight} from '../../utils/UI';
+import {StyleSheet} from 'react-native';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default StyleSheet.create({
-  background: {
-    flex: 1,
+  shell: {
+    width: '100%',
+    height: '100%',
     position: 'absolute',
-    zIndex: -99999
+    top: 0,
+    left: 0,
+    zIndex: 1
   },
   main: {
-    flex: 1,
+    width: '100%',
+    height: '100%',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   mainCentering: {
-    flex: 1,
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center'
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    zIndex: 1
   },
   fragment: {
     marginTop: hp('16%'),
     marginBottom: 60,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });

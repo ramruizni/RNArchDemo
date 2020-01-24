@@ -3,7 +3,6 @@ import Callback from './Callback';
 
 export default new (class QrReader {
   constructor() {
-    console.log(NativeModules.QrReaderIOS)
     if (Platform.OS === 'android') {
       this.manager = NativeModules.QrReaderAndroid;
     } else {
@@ -16,5 +15,4 @@ export default new (class QrReader {
       this.manager.startScan(Callback('startScan', resolve, reject));
     });
   }
-
 })();

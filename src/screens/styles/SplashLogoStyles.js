@@ -5,9 +5,9 @@ import {PRIMARY} from './Commons';
 export default StyleSheet.create({
   ...CommonStyles,
   logo: {
-    marginBottom: 10,
-    width: 160,
-    height: 160,
+    marginBottom: 60,
+    width: 100,
+    height: 100,
     tintColor: PRIMARY
   },
   text: {
