@@ -4,7 +4,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp
 } from 'react-native-responsive-screen';
-import {BUTTONS} from '../screens/styles/Commons';
+import {BORDER_COLOR, BORDER_WIDTH, BUTTONS} from '../screens/styles/Commons';
 import {statusBarHeight} from '../utils/UI';
 
 const styles = StyleSheet.create({
@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: statusBarHeight(),
     backgroundColor: BUTTONS,
-    borderBottomWidth: 0.2,
-    borderColor: 'white'
+    borderBottomWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR
   },
   title: {
     color: 'white',

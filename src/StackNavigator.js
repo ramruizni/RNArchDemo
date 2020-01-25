@@ -5,6 +5,18 @@ import LoginScreen from './screens/LoginScreen';
 import MenuScreen from './screens/MenuScreen';
 import {RightTransition} from './utils/NavigatorTransitions';
 
+const StackNavigator = createStackNavigator(
+  {
+    MenuScreen,
+    SplashLogoScreen,
+    LoginScreen
+  },
+  {
+    headerMode: 'none',
+    transitionConfig: NavigationOptions
+  }
+);
+
 const NavigationOptions = () => {
   return {
     screenInterpolator: sceneProps => {
@@ -15,18 +27,4 @@ const NavigationOptions = () => {
   };
 };
 
-const StackNavigator = createStackNavigator(
-  {
-    SplashLogoScreen,
-    MenuScreen,
-    LoginScreen
-  },
-  {
-    headerMode: 'none',
-    transitionConfig: NavigationOptions
-  }
-);
-
-const AppContainer = createAppContainer(StackNavigator);
-
-export default AppContainer;
+export default createAppContainer(StackNavigator);

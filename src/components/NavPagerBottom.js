@@ -1,23 +1,23 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View, Animated} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {BUTTONS} from '../screens/styles/Commons';
+import {BORDER_COLOR, BORDER_WIDTH, BUTTONS} from '../screens/styles/Commons';
 
 const styles = StyleSheet.create({
   main: {
     width: wp('100%'),
-    height: 60,
-    backgroundColor: BUTTONS,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'flex-end'
   },
   button: {
     width: '50%',
-    height: 60,
-    borderColor: 'white',
+    borderColor: BORDER_COLOR,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderWidth: BORDER_WIDTH,
+    borderBottomWidth: 0,
+    backgroundColor: BUTTONS
   },
   buttonText: {
     color: 'white',
@@ -25,15 +25,52 @@ const styles = StyleSheet.create({
   }
 });
 
-export default props => {
-  return (
-    <View style={{...styles.main, ...props.style}}>
-      <TouchableOpacity style={{...styles.button, borderRightWidth: 0.2}} onPress={props.menuQrPress}>
-        <Text style={styles.buttonText}>Read QR</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={props.menuSoundPress}>
-        <Text style={styles.buttonText}>Play Sound</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+export default class extends React.Component {
+  state = {
+    selected: 0,
+    heightLeft: new Animated.Value(60),
+    heightRight: new Animated.Value(60)
+  };
+
+  animate = selected => {
+    this.setState({selected});
+    Animated.parallel([
+      Animated.timing(selected === 0 ? this.state.heightLeft : this.state.heightRight, {
+        toValue: 66,
+        duration: 100
+      }),
+      Animated.timing(selected === 0 ? this.state.heightRight : this.state.heightLeft, {
+        toValue: 60,
+        duration: 100
+      })
+    ]).start();
+  };
+
+  render() {
+    const animStylesLeft = {height: this.state.heightLeft};
+    const animStylesRight = {height: this.state.heightRight};
+    const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
+
+    return (
+      <View style={{...styles.main, ...this.props.style}}>
+        <AnimatedTouchable
+          style={[styles.button, animStylesLeft]}
+          onPress={() => {
+            this.props.menuQrPress();
+            this.animate(0);
+          }}>
+          <Text style={styles.buttonText}>Read QR</Text>
+        </AnimatedTouchable>
+
+        <AnimatedTouchable
+          style={{...styles.button, ...animStylesRight}}
+          onPress={() => {
+            this.props.menuSoundPress();
+            this.animate(1);
+          }}>
+          <Text style={styles.buttonText}>Play Sound</Text>
+        </AnimatedTouchable>
+      </View>
+    );
+  }
+}

@@ -1,2 +1,4 @@
 export const PRIMARY = 'white';
 export const BUTTONS = '#525D7F';
+export const BORDER_WIDTH = 0.3;
+export const BORDER_COLOR = 'lightgray';

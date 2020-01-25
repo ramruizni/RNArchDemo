@@ -5,6 +5,6 @@ export default class extends BaseInteractor {
     spin();
     setTimeout(() => {
       this.navigateClearingStack('LoginScreen');
-    }, 4000);
+    }, 2000);
   }
 }

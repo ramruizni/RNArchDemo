@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {BUTTONS, PRIMARY} from '../screens/styles/Commons';
+import {BORDER_COLOR, BORDER_WIDTH, BUTTONS, PRIMARY} from '../screens/styles/Commons';
 
 const styles = StyleSheet.create({
   btnQr: {
@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     backgroundColor: BUTTONS,
-    borderWidth: 0.2,
-    borderColor: 'white',
+    borderWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR,
     borderRadius: 15
   },
   btnQrImage: {

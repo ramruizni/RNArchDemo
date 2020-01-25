@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {BUTTONS} from '../screens/styles/Commons';
+import {BORDER_COLOR, BORDER_WIDTH, BUTTONS} from '../screens/styles/Commons';
 
 const styles = StyleSheet.create({
   main: {
@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     height: wp('11%'),
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 0.5,
+    borderWidth: BORDER_WIDTH,
+    borderColor: BORDER_COLOR,
     borderRadius: 10,
     backgroundColor: BUTTONS
   },
