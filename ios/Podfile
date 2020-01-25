@@ -42,6 +42,10 @@ target 'rn_arch_demo' do
   use_native_modules!
   
   pod 'SwiftySound'
+  
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+
 end
 
 target 'rn_arch_demo-tvOS' do

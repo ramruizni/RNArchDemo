@@ -20,6 +20,8 @@
 		8A46FD0C23D7CCF000AB2153 /* QrReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46FD0B23D7CCF000AB2153 /* QrReader.swift */; };
 		8A46FD0E23D7CD3100AB2153 /* QrReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46FD0D23D7CD3100AB2153 /* QrReader.m */; };
 		8A46FD1023D7CD8D00AB2153 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46FD0F23D7CD8D00AB2153 /* ScanViewController.swift */; };
+		8A6F309F23DCF5A300B30F2C /* UXUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F309E23DCF5A300B30F2C /* UXUtils.swift */; };
+		8A6F30A123DCF5B900B30F2C /* UXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F30A023DCF5B900B30F2C /* UXUtils.m */; };
 		8A72D7F623D7A55F000EF33F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D7F523D7A55F000EF33F /* AppDelegate.swift */; };
 		8A72D7F723D7A56F000EF33F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72D7F523D7A55F000EF33F /* AppDelegate.swift */; };
 		96B05DAF4DC0BA9EC9FDB1EE /* libPods-rn_arch_demo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F927DA15D7AFC03F64A130 /* libPods-rn_arch_demo-tvOSTests.a */; };
@@ -66,6 +68,8 @@
 		8A46FD0B23D7CCF000AB2153 /* QrReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrReader.swift; sourceTree = "<group>"; };
 		8A46FD0D23D7CD3100AB2153 /* QrReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QrReader.m; sourceTree = "<group>"; };
 		8A46FD0F23D7CD8D00AB2153 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		8A6F309E23DCF5A300B30F2C /* UXUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXUtils.swift; sourceTree = "<group>"; };
+		8A6F30A023DCF5B900B30F2C /* UXUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UXUtils.m; sourceTree = "<group>"; };
 		8A72D7F423D7A55E000EF33F /* rn_arch_demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rn_arch_demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		8A72D7F523D7A55F000EF33F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95B3FF922E4A9501F54E4606 /* Pods-rn_arch_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_arch_demo.release.xcconfig"; path = "Target Support Files/Pods-rn_arch_demo/Pods-rn_arch_demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,9 +215,19 @@
 			path = QrReader;
 			sourceTree = "<group>";
 		};
+		8A6F309D23DCF58800B30F2C /* UXUtils */ = {
+			isa = PBXGroup;
+			children = (
+				8A6F309E23DCF5A300B30F2C /* UXUtils.swift */,
+				8A6F30A023DCF5B900B30F2C /* UXUtils.m */,
+			);
+			path = UXUtils;
+			sourceTree = "<group>";
+		};
 		8A72D7F323D7A444000EF33F /* bridges */ = {
 			isa = PBXGroup;
 			children = (
+				8A6F309D23DCF58800B30F2C /* UXUtils */,
 				8A46FD0A23D7CC2700AB2153 /* QrReader */,
 				8A46FD0923D7C92600AB2153 /* SoundPlayer */,
 			);
@@ -571,6 +585,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A46FD0423D7C58B00AB2153 /* SoundPlayer.swift in Sources */,
+				8A6F309F23DCF5A300B30F2C /* UXUtils.swift in Sources */,
+				8A6F30A123DCF5B900B30F2C /* UXUtils.m in Sources */,
 				8A46FD0823D7C91C00AB2153 /* SoundPlayer.m in Sources */,
 				8A46FD0E23D7CD3100AB2153 /* QrReader.m in Sources */,
 				8A72D7F623D7A55F000EF33F /* AppDelegate.swift in Sources */,

@@ -22,20 +22,23 @@ class QrReader(reactContext: ReactApplicationContext?) : ReactContextBaseJavaMod
     @ReactMethod
     fun startScan(callback: Callback) {
         this.callback = callback
-        EventBus.getDefault().register(this)
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this)
+        }
 
         IntentIntegrator(currentActivity)
                 .setCaptureActivity(ScanActivity::class.java)
                 .setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
                 .setPrompt("Scan a barcode")
-                .setBarcodeImageEnabled(true)
+                .setBarcodeImageEnabled(false)
+                .setBeepEnabled(false)
                 .initiateScan()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onQrRead(qrContent: String?) {
-        if (qrContent != null) {
-            callback!!.invoke(null, qrContent)
+    fun onQrRead(event: QrEvent) {
+        if (event.qrContent != null) {
+            callback!!.invoke(null, event.qrContent)
         } else {
             callback!!.invoke("There was an error while reading the code", null)
         }
