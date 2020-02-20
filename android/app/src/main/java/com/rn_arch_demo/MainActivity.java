@@ -26,9 +26,7 @@ public class MainActivity extends ReactActivity {
     super.onActivityResult(requestCode, resultCode, data);
     if (data != null && !data.getBooleanExtra("backPressed", false)) {
       IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-      if (data.getBooleanExtra("backPressed", false)) {
-        EventBus.getDefault().post(new QrEvent(result.getContents()));
-      }
+      EventBus.getDefault().post(new QrEvent(result.getContents()));
     }
   }
 }

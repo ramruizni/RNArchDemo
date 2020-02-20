@@ -7,8 +7,8 @@ import {RightTransition} from './utils/NavigatorTransitions';
 
 const StackNavigator = createStackNavigator(
   {
-    MenuScreen,
     SplashLogoScreen,
+    MenuScreen,
     LoginScreen
   },
   {
